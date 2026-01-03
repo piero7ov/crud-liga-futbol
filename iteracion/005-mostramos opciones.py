@@ -1,0 +1,49 @@
+import mysql.connector
+
+# Me conecto a la base de datos
+conexion = mysql.connector.connect(
+    host="localhost",
+    user="superfutbol",      
+    password="superfutbol",
+    database="liga_futbol"
+)
+
+cursor = conexion.cursor()
+
+print("Gestión multitabla de la Liga de Fútbol v0.1")
+print("Este programa permite gestionar varias tablas de la base de datos 'liga_futbol'.")
+print("Primero seleccionaremos una tabla y luego realizaremos operaciones sobre ella.\n")
+
+# ------------------ SELECCIÓN DE TABLA ------------------
+
+cursor.execute("SHOW TABLES;")
+filas = cursor.fetchall()
+
+print("Tablas en la base de datos:")
+
+tablas = []
+for fila in filas:
+    tablas.append(fila[0])
+
+for indice, nombre_tabla in enumerate(tablas):
+    print(indice, "-", nombre_tabla)
+
+# Elegimos tabla
+opcion_tabla = int(input("\nSelecciona el número de la tabla con la que quieres trabajar: "))
+
+tabla_elegida = tablas[opcion_tabla]
+
+print("\nHas seleccionado la tabla:", tabla_elegida)
+
+# ------------------ MOSTRAR OPCIONES CRUD ------------------
+
+print("\n¿Qué operación quieres realizar sobre la tabla", tabla_elegida, "?")
+print("1.- Insertar")
+print("2.- Listar")
+print("3.- Actualizar")
+print("4.- Eliminar")
+
+opcion_crud = int(input("Escoge una opción: "))
+
+print("\nHas elegido la opción:", opcion_crud)
+print("Más adelante implementaremos estas operaciones.")
