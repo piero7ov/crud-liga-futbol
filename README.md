@@ -166,5 +166,3 @@ En conjunto, el programa demuestra cómo conectar **Programación** con **Bases 
 ## 👤 Autor
 
 **Piero Olivares**
-::contentReference[oaicite:0]{index=0}
-```
